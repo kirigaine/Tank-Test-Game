@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const bullet_scene = preload("res://Scenes/Bullet.tscn")
+const bullet_scene = preload("res://Mini Scenes/Bullet.tscn")
 const MAX_SPEED = 10000
 const ACCELERATION = 200
 
