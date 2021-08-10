@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Mini Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=3]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 553.31, 221.997 )
+scale = Vector2( 20, 20 )
+z_index = -2
+texture = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 499, 268 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
+[node name="DebugInfo" type="CanvasLayer" parent="."]
+
+[node name="lblPosition" type="Label" parent="DebugInfo"]
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 69.0
+margin_bottom = 19.0
+custom_colors/font_color = Color( 0.0470588, 0.960784, 0.105882, 1 )
+text = "Pos: (0, 0)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblVelocity" type="Label" parent="DebugInfo"]
+margin_left = 6.0
+margin_top = 23.0
+margin_right = 66.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0.0470588, 0.960784, 0.105882, 1 )
+text = "Vel: (0, 0)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblRotation" type="Label" parent="DebugInfo"]
+margin_left = 6.0
+margin_top = 41.0
+margin_right = 67.0
+margin_bottom = 55.0
+custom_colors/font_color = Color( 0.0470588, 0.960784, 0.105882, 1 )
+text = "Rot: (0, 0)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
