@@ -5,3 +5,8 @@
 bin/
 build/
 lib/
+
+# Files
+default_env.tres
+git_api.gdnlib
+git_api.gdns

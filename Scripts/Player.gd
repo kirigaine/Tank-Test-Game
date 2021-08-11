@@ -26,6 +26,9 @@ func rotate_player(rotati):
 
 func _physics_process(delta):
 	
+	# Rotate head of tank to mouse position
+	$Pivot.rotation = get_angle_to(get_global_mouse_position()) + PI/2
+	
 	# Move if velocity isn't zero, disable and enable sprite animation and sound
 	if velocity != Vector2.ZERO:
 		if not $AnimatedSprite.playing:
@@ -72,8 +75,9 @@ func _physics_process(delta):
 		rotate_player(-rotation_speed * delta)
 	
 	# Firing shells
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_attack"):
 		var bullet = bullet_scene.instance()
-		bullet.velocity = my_rotation
+		bullet.velocity.x = cos($Pivot.rotation + rotation - PI/2)
+		bullet.velocity.y = sin($Pivot.rotation + rotation - PI/2)
 		bullet.set_position(position)
 		get_tree().get_root().add_child(bullet)
