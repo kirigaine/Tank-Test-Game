@@ -1,55 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Mini Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/citymap.jpg" type="Texture" id=2]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=3]
+[ext_resource path="res://HUD/GameHUD.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 553.31, 221.997 )
-scale = Vector2( 20, 20 )
+position = Vector2( 551.723, 223.584 )
+scale = Vector2( 0.2, 0.2 )
 z_index = -2
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 499, 268 )
+position = Vector2( 449.8, 535.341 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="DebugInfo" type="CanvasLayer" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 1.5874, 0 )
+polygon = PoolVector2Array( -105.407, -278.635, -46.0772, -223.543, 218.789, -437.555, 1206.21, -437.555, 1214.68, 312.545, 1049.41, 128.199, 1055.76, 115.485, 1112.98, 119.723, 1112.98, -371.868, 913.796, -373.987, 930.748, 104.89, 1034.58, 140.912, 678.595, 486.297, 937.104, 749.044, 1197.73, 484.178, 1210.45, 882.536, 445.514, 880.417, -113.883, 348.567, -111.764, -325.252, -168.975, -321.014, -139.31, 388.827, 396.778, 901.607, 1242.23, 907.963, 1237.99, -456.625, 182.767, -462.982, -35.4825, -270.159 )
 
-[node name="lblPosition" type="Label" parent="DebugInfo"]
-margin_left = 6.0
-margin_top = 5.0
-margin_right = 69.0
-margin_bottom = 19.0
-custom_colors/font_color = Color( 0.0470588, 0.960784, 0.105882, 1 )
-text = "Pos: (0, 0)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 16.959, -168.451, 606.021, 422.729, 885.719, 138.793, 703.491, -49.7912, 595.426, 62.5119, 404.723, -130.31, 521.263, -153.619, 873.005, -157.856, 877.243, -373.987, 500.074, -382.463, 169.522, -304.062 )
 
-[node name="lblVelocity" type="Label" parent="DebugInfo"]
-margin_left = 6.0
-margin_top = 23.0
-margin_right = 66.0
-margin_bottom = 37.0
-custom_colors/font_color = Color( 0.0470588, 0.960784, 0.105882, 1 )
-text = "Vel: (0, 0)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="lblRotation" type="Label" parent="DebugInfo"]
-margin_left = 6.0
-margin_top = 41.0
-margin_right = 67.0
-margin_bottom = 55.0
-custom_colors/font_color = Color( 0.0470588, 0.960784, 0.105882, 1 )
-text = "Rot: (0, 0)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="GameHUD" parent="." instance=ExtResource( 4 )]
